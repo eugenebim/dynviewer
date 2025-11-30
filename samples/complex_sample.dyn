@@ -1,0 +1,60 @@
+{
+  "Uuid": "e9366375-3d5d-4567-9160-89438965d444",
+  "Name": "Complex Sample",
+  "Nodes": [
+    {
+      "Id": "n1",
+      "Name": "Number",
+      "Nickname": "Number",
+      "NodeType": "Node",
+      "Outputs": [ { "Name": "value", "Id": "p1" } ]
+    },
+    {
+      "Id": "n2",
+      "Name": "Number",
+      "Nickname": "Number",
+      "NodeType": "Node",
+      "Outputs": [ { "Name": "value", "Id": "p2" } ]
+    },
+    {
+      "Id": "add1",
+      "Name": "Math.Add",
+      "Nickname": "Add",
+      "NodeType": "Node",
+      "Inputs": [ { "Name": "x", "Id": "p3" }, { "Name": "y", "Id": "p4" } ],
+      "Outputs": [ { "Name": "sum", "Id": "p5" } ]
+    },
+    {
+      "Id": "watch1",
+      "Name": "Watch",
+      "Nickname": "Watch",
+      "NodeType": "Node",
+      "Inputs": [ { "Name": "", "Id": "p6" } ]
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": { "NodeId": "n1", "Index": 0 },
+      "End": { "NodeId": "add1", "Index": 0 }
+    },
+    {
+      "Start": { "NodeId": "n2", "Index": 0 },
+      "End": { "NodeId": "add1", "Index": 1 }
+    },
+    {
+      "Start": { "NodeId": "add1", "Index": 0 },
+      "End": { "NodeId": "watch1", "Index": 0 }
+    }
+  ],
+  "View": {
+    "X": 0,
+    "Y": 0,
+    "Zoom": 1.0,
+    "NodeViews": [
+      { "Id": "n1", "X": 100, "Y": 100, "IsCollapsed": false },
+      { "Id": "n2", "X": 100, "Y": 250, "IsCollapsed": false },
+      { "Id": "add1", "X": 400, "Y": 175, "IsCollapsed": false },
+      { "Id": "watch1", "X": 700, "Y": 175, "IsCollapsed": false }
+    ]
+  }
+}

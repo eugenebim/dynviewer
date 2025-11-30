@@ -1,0 +1,1351 @@
+{
+  "Uuid": "b720b6a6-1720-47f3-9237-cf8caf500ce1",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Data_StringifyJSON",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "ba9c12e5de3d4bb6baf825036c02a996",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8f65a6e3274b42878122d5e0006dc348",
+          "Name": "",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b17c894b8ff34ff5995e4b5e65d0b765",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "x=(1..100..10);\nPoint.ByCoordinates(x,0,10);"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "Id": "708e988268e94d32af29df2802308ee4",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "acbbf9ac73554a9889abc25aac40e7b0",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system and returns its file path",
+      "HintPath": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\DataStringifyJSON.txt",
+      "InputValue": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\DataStringifyJSON.txt"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "Id": "96de742f123f4a6f9a562b71cc7651ec",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b1655d7cbaee40a1bfd6eb247617548f",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system and returns its file path",
+      "HintPath": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\Geometry_ToSolidDef.txt",
+      "InputValue": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\Geometry_ToSolidDef.txt"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "fed74d365a2d4843b44f4207c041f5fa",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "9ac159c33c814ca1baa451b07ff00cee",
+          "Name": "values",
+          "Description": "A List of values\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a34d67a0d9504d2cbbb3f261020a5e76",
+          "Name": "json",
+          "Description": "A JSON string where primitive types (e.g. double, int, boolean), Lists, and Dictionary's will be turned into the associated JSON type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.Data.StringifyJSON@var[]..[]",
+      "Replication": "Auto",
+      "Description": "Stringify converts an arbitrary value or a list of arbitrary values to JSON. Replication can be used to apply the operation over a list, producing a list of JSON strings.\n\nData.StringifyJSON (values: var[]..[]): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "5f9be3e6faf8411a8424bf7a8d27bfd5",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "e9a08ca8086d4e8e815e22cacd1bcc4d",
+          "Name": "filePath",
+          "Description": "Path to write to\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3fd16cc401e74eb0aa10e6b4ea7365f9",
+          "Name": "text",
+          "Description": "Text content\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "49c15497840b4395a007a9ac7d2d43f0",
+          "Name": "void",
+          "Description": "No output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.WriteText@string,string",
+      "Replication": "Auto",
+      "Description": "Write the text content to a file specified by the path\n\nFileSystem.WriteText (filePath: string, text: string): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "b2d6c3f2d3754f41bd78c5df2a1d364f",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "51a5abb5f5344b029df15667e5ee5517",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d31d3582a4b04c84801bbbeaf058cc7c",
+          "Name": "string",
+          "Description": "Json formatted string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.ToSolidDef",
+      "Replication": "Auto",
+      "Description": "Convert geometry to Solid Def json\n\nGeometry.ToSolidDef ( ): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "7cfb30c474a843a79c99896a6bb50c77",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "f300f1398b6e45b284cef4dc5e58ca42",
+          "Name": "filePath",
+          "Description": "Path to write to\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0a2045915a524b6fa259b03c5d0048b7",
+          "Name": "text",
+          "Description": "Text content\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "faf7415e99984540aed75e647df798db",
+          "Name": "void",
+          "Description": "No output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.WriteText@string,string",
+      "Replication": "Auto",
+      "Description": "Write the text content to a file specified by the path\n\nFileSystem.WriteText (filePath: string, text: string): void"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 420.0,
+      "WatchHeight": 169.6,
+      "Id": "d43873d775cf415d9bb460d95a10add1",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "161f3d14c9dc4496b872bf0023f644ce",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e091cb3f5e404ea7b5e2d97b81164bdb",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 2239.2,
+      "WatchHeight": 138.4,
+      "Id": "215d6f7e29174b508d091368ae5ff3a2",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "259ede71547a45e18069a9ee5aa07b47",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a429ec77bfd443f29e8247876c99a319",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "ba7bf99173df41a693af73cdf46fa200",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b2a41ec621bf4e28bfd8262efd2b044e",
+          "Name": "file",
+          "Description": "File object to read text from\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "71574be4065c48b28e0f6917edcc0883",
+          "Name": "string",
+          "Description": "Contents of the text file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.ReadText@var",
+      "Replication": "Auto",
+      "Description": "Reads a text file and returns the contents as a string.\n\nFileSystem.ReadText (file: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "b293a81f74094b11ab186023818dc2eb",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "b69d9eb0d717445480e0b5dd516ef98c",
+          "Name": "json",
+          "Description": "A JSON string\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a899f5f1376c4bb3934b805aef7d69c6",
+          "Name": "result",
+          "Description": "The result type depends on the content of the input string. The result type can be a primitive value (e.g. string, boolean, double), a List, or a Dictionary.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.Data.ParseJSON@string",
+      "Replication": "Auto",
+      "Description": "Parse converts an arbitrary JSON string to a value. It is the opposite of JSON.Stringify.\n\nData.ParseJSON (json: string): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Concat@string[]",
+      "FunctionType": "VariableArgument",
+      "Id": "592463f3d7434bfa80e36003f8ed924b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "a3d80c8c2093470ea404db98638eaba5",
+          "Name": "string0",
+          "Description": "List of strings to concatenate.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3755167bcd004dee9e7eac58ad6d9ece",
+          "Name": "string",
+          "Description": "String made from list of strings.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Concatenates multiple strings into a single string.\n\nString.Concat (strings: string[]): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Join@string,string[]",
+      "FunctionType": "VariableArgument",
+      "Id": "8625e62028da48c6ab25df20d75ebb02",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "c7ae4ccc7e1349798600a667ced0fc08",
+          "Name": "separator",
+          "Description": "String to be inserted between joined strings.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "659a8b9917854f4da9ea6146e888e3db",
+          "Name": "string0",
+          "Description": "Strings to be joined into a single string.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b9f29a6f7d514dd6855a90fc07c50174",
+          "Name": "string",
+          "Description": "A string made from the list of strings including the separator character.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Concatenates multiple strings into a single string, inserting the given separator between each joined string.\n\nString.Join (separator: string, strings: string[]): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "Id": "b935d107a88d47b6807cf820df08df6d",
+      "NodeType": "StringInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2a9aa3c4ed5c4e65a91e27d12b13b39b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string",
+      "InputValue": ","
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "0f42135799aa4641acf846cbede112da",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "1586d6fb9f6b48a8b2b785aa35f13b53",
+          "Name": "filePath",
+          "Description": "Path to write to\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "01917e1403b94965a74c750e5ba254f6",
+          "Name": "text",
+          "Description": "Text content\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "965c0618e2ce40ee8addb986262790de",
+          "Name": "void",
+          "Description": "No output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.WriteText@string,string",
+      "Replication": "Auto",
+      "Description": "Write the text content to a file specified by the path\n\nFileSystem.WriteText (filePath: string, text: string): void"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "Id": "d6a3a932aa874da18facb003da5f6132",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ba0925e3897a40a09c63e612808021fa",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system and returns its file path",
+      "HintPath": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\Geometry_ToSolidDef_joinString.txt",
+      "InputValue": ".\\Geometry_ToSolidDef_joinString.txt"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "f9ecf59f7b6e499298a0ec88df64d72f",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "f982691a783542bba9443e64d58933fa",
+          "Name": "filePath",
+          "Description": "Path to write to\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0b9d4b1f5ed5413496a047c7dad73c0a",
+          "Name": "text",
+          "Description": "Text content\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "761ce0ae64a941c581cdc644e0de9fcb",
+          "Name": "void",
+          "Description": "No output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.WriteText@string,string",
+      "Replication": "Auto",
+      "Description": "Write the text content to a file specified by the path\n\nFileSystem.WriteText (filePath: string, text: string): void"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "Id": "6a197e0f33554e69a63e4aa12e6f4df2",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6e69d2aa136a4f03b97c355bee103ce4",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system and returns its file path",
+      "HintPath": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\Geometry_ToSolidDef_concateString.txt",
+      "InputValue": ".\\Geometry_ToSolidDef_concateString.txt"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "9a8d18c3f5354a919efcaa1815eb015a",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [
+        {
+          "Id": "cb4a080027774e87b43406a75b5bc382",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a93f25b8708e4002b146d3a3607dfd61",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly",
+      "Code": "\"[\"+ x + \"]\";"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.FromArray, CoreNodeModels",
+      "Id": "9f62011da07942119880bd741c541212",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "5d35f925e56a4bad9fce1638e4aaeaf3",
+          "Name": "array",
+          "Description": "The array of object to be serialized",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dda35c553cea4bbbb14320972d55aa57",
+          "Name": "string",
+          "Description": "String representation of the array",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Converts an array to a string representation"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "Id": "85e9a55c50b54b7f826561814b3698cf",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b8e49dd616434f2587962eca1fb68b1a",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system and returns its file path",
+      "HintPath": "D:\\OneDrive\\dynamo\\Data_StringifyJSON\\Geometry_ToSolidDef_StringFromArray.txt",
+      "InputValue": ".\\Geometry_ToSolidDef_StringFromArray.txt"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "c32724026b894da9936600c6a079b6b2",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "cfb199e228714202983e81107f993391",
+          "Name": "filePath",
+          "Description": "Path to write to\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a40214e281c94eafb6a40f4b23b5a799",
+          "Name": "text",
+          "Description": "Text content\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ca22587931914c8ba873f1877840fc02",
+          "Name": "void",
+          "Description": "No output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.WriteText@string,string",
+      "Replication": "Auto",
+      "Description": "Write the text content to a file specified by the path\n\nFileSystem.WriteText (filePath: string, text: string): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "a3d01f020eb741f68aa4d3831c4f2f61",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "24fd2471c2364043956999af3c601612",
+          "Name": "json",
+          "Description": "A JSON string\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4a9761f86a72479ab5ffb87c7f70230c",
+          "Name": "result",
+          "Description": "The result type depends on the content of the input string. The result type can be a primitive value (e.g. string, boolean, double), a List, or a Dictionary.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.Data.ParseJSON@string",
+      "Replication": "Auto",
+      "Description": "Parse converts an arbitrary JSON string to a value. It is the opposite of JSON.Stringify.\n\nData.ParseJSON (json: string): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "613621c2696e4de7a26ae5c48305aa73",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "92e3c6d94d744acbb28b3680f4c9bc94",
+          "Name": "file",
+          "Description": "File object to read text from\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c17c84cc1af84177a7f2d7cde3f2da81",
+          "Name": "string",
+          "Description": "Contents of the text file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.IO.FileSystem.ReadText@var",
+      "Replication": "Auto",
+      "Description": "Reads a text file and returns the contents as a string.\n\nFileSystem.ReadText (file: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "5390811abfd84dc68c6c46cb5b0c8dd0",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "0ce954f455604086a8f3ac4a09a26e7a",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2d09ec6abefd4b4b85255b240986aa0b",
+          "Name": "amount",
+          "Description": "Layers of list nesting to remove (-1 will remove all list nestings)\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "103c1db7434c4b169bd39248d7a603e4",
+          "Name": "list",
+          "Description": "Flattened list by amount",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amount: int = -1): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b17c894b8ff34ff5995e4b5e65d0b765",
+      "End": "9ac159c33c814ca1baa451b07ff00cee",
+      "Id": "1558b45cf47d444d93e3781ae5a933cf",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b17c894b8ff34ff5995e4b5e65d0b765",
+      "End": "51a5abb5f5344b029df15667e5ee5517",
+      "Id": "91df495335874bbe98e98dd592a794b2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "acbbf9ac73554a9889abc25aac40e7b0",
+      "End": "b2a41ec621bf4e28bfd8262efd2b044e",
+      "Id": "e43cd5349b2247a19cea98100bf1329b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a34d67a0d9504d2cbbb3f261020a5e76",
+      "End": "3fd16cc401e74eb0aa10e6b4ea7365f9",
+      "Id": "e7b111bc016049669a234a3b03b36ceb",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a34d67a0d9504d2cbbb3f261020a5e76",
+      "End": "161f3d14c9dc4496b872bf0023f644ce",
+      "Id": "53d3b8c4ca5b4684bcaaa082712583c3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d31d3582a4b04c84801bbbeaf058cc7c",
+      "End": "0a2045915a524b6fa259b03c5d0048b7",
+      "Id": "91cf37ff73d8457e97cb6c7632ba903f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d31d3582a4b04c84801bbbeaf058cc7c",
+      "End": "a3d80c8c2093470ea404db98638eaba5",
+      "Id": "46ac32d7a68e4ef4898f27f47d4b24ff",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d31d3582a4b04c84801bbbeaf058cc7c",
+      "End": "659a8b9917854f4da9ea6146e888e3db",
+      "Id": "da4b377b28ec45eb8b986d7a874703f2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d31d3582a4b04c84801bbbeaf058cc7c",
+      "End": "5d35f925e56a4bad9fce1638e4aaeaf3",
+      "Id": "6d839f7f7d9d4e58aad21b2ec7c2a56e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "71574be4065c48b28e0f6917edcc0883",
+      "End": "b69d9eb0d717445480e0b5dd516ef98c",
+      "Id": "0961acbb32f34ecfbb9afb6997a58fbc",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3755167bcd004dee9e7eac58ad6d9ece",
+      "End": "259ede71547a45e18069a9ee5aa07b47",
+      "Id": "35c1a165b62642688bf8742db58bacd9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3755167bcd004dee9e7eac58ad6d9ece",
+      "End": "01917e1403b94965a74c750e5ba254f6",
+      "Id": "4117aaf5c44b4ffa8b0bb4462e7eae90",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b9f29a6f7d514dd6855a90fc07c50174",
+      "End": "cb4a080027774e87b43406a75b5bc382",
+      "Id": "5ce00263d8e9467fa258d7835553baee",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2a9aa3c4ed5c4e65a91e27d12b13b39b",
+      "End": "c7ae4ccc7e1349798600a667ced0fc08",
+      "Id": "68f87df6fbcb42e7bb1c36450fe307d5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a93f25b8708e4002b146d3a3607dfd61",
+      "End": "0b9d4b1f5ed5413496a047c7dad73c0a",
+      "Id": "c91b039c807245818f453dc2f212ae4a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dda35c553cea4bbbb14320972d55aa57",
+      "End": "a40214e281c94eafb6a40f4b23b5a799",
+      "Id": "75f25e2460974a459faf4643120f0e59",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b8e49dd616434f2587962eca1fb68b1a",
+      "End": "92e3c6d94d744acbb28b3680f4c9bc94",
+      "Id": "ce0fe264d76e4c6686aafc3e4004bea9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4a9761f86a72479ab5ffb87c7f70230c",
+      "End": "0ce954f455604086a8f3ac4a09a26e7a",
+      "Id": "6b224228790040b5a7caaeb6f46758c6",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c17c84cc1af84177a7f2d7cde3f2da81",
+      "End": "24fd2471c2364043956999af3c601612",
+      "Id": "e10eb2cd96b9445ea410e45c6e647ccd",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "DataStringifyJSON.txt",
+      "ReferenceType": "External",
+      "Nodes": [
+        "708e988268e94d32af29df2802308ee4"
+      ]
+    },
+    {
+      "Name": "Geometry_ToSolidDef.txt",
+      "ReferenceType": "External",
+      "Nodes": [
+        "96de742f123f4a6f9a562b71cc7651ec"
+      ]
+    },
+    {
+      "Name": "Geometry_ToSolidDef_joinString.txt",
+      "ReferenceType": "External",
+      "Nodes": [
+        "d6a3a932aa874da18facb003da5f6132"
+      ]
+    },
+    {
+      "Name": "Geometry_ToSolidDef_concateString.txt",
+      "ReferenceType": "External",
+      "Nodes": [
+        "6a197e0f33554e69a63e4aa12e6f4df2"
+      ]
+    },
+    {
+      "Name": "Geometry_ToSolidDef_StringFromArray.txt",
+      "ReferenceType": "External",
+      "Nodes": [
+        "85e9a55c50b54b7f826561814b3698cf"
+      ]
+    }
+  ],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "3.0",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "7.1",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "3.2.2.5494",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -1.4809532165527344,
+      "EyeY": 58.11056137084961,
+      "EyeZ": 63.10784149169922,
+      "LookX": 39.140960693359375,
+      "LookY": -50.03274917602539,
+      "LookZ": -64.40252685546875,
+      "UpX": 0.28725525736808777,
+      "UpY": 0.833118736743927,
+      "UpZ": -0.47264954447746277
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "ba9c12e5de3d4bb6baf825036c02a996",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": false,
+        "X": -22.921947886607313,
+        "Y": -141.69634680928326
+      },
+      {
+        "Id": "708e988268e94d32af29df2802308ee4",
+        "Name": "File Path",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 388.3508129518683,
+        "Y": -290.56805940113543
+      },
+      {
+        "Id": "96de742f123f4a6f9a562b71cc7651ec",
+        "Name": "File Path",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 377.6395654475896,
+        "Y": 117.2944512634262
+      },
+      {
+        "Id": "fed74d365a2d4843b44f4207c041f5fa",
+        "Name": "Data.StringifyJSON",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 422.4497056804449,
+        "Y": -128.23946019390348
+      },
+      {
+        "Id": "5f9be3e6faf8411a8424bf7a8d27bfd5",
+        "Name": "FileSystem.WriteText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1014.1566025250579,
+        "Y": -224.52036126024657
+      },
+      {
+        "Id": "b2d6c3f2d3754f41bd78c5df2a1d364f",
+        "Name": "Geometry.ToSolidDef",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 446.63431829605656,
+        "Y": 285.98119515276557
+      },
+      {
+        "Id": "7cfb30c474a843a79c99896a6bb50c77",
+        "Name": "FileSystem.WriteText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1105.6443692841324,
+        "Y": 209.33038071159925
+      },
+      {
+        "Id": "d43873d775cf415d9bb460d95a10add1",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1442.8302496913245,
+        "Y": -249.58803969648795
+      },
+      {
+        "Id": "215d6f7e29174b508d091368ae5ff3a2",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1368.837919360966,
+        "Y": 406.3299097273899
+      },
+      {
+        "Id": "ba7bf99173df41a693af73cdf46fa200",
+        "Name": "FileSystem.ReadText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2471.0723844338345,
+        "Y": 796.2274733417357
+      },
+      {
+        "Id": "b293a81f74094b11ab186023818dc2eb",
+        "Name": "Data.ParseJSON",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2856.9243976126195,
+        "Y": 799.5466304443489
+      },
+      {
+        "Id": "592463f3d7434bfa80e36003f8ed924b",
+        "Name": "String.Concat",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 737.2522158418137,
+        "Y": 414.07449981872264
+      },
+      {
+        "Id": "8625e62028da48c6ab25df20d75ebb02",
+        "Name": "String.Join",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 768.2944535860104,
+        "Y": 1101.7615896253042
+      },
+      {
+        "Id": "b935d107a88d47b6807cf820df08df6d",
+        "Name": "String",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 521.9610352879868,
+        "Y": 1110.875998450382
+      },
+      {
+        "Id": "0f42135799aa4641acf846cbede112da",
+        "Name": "FileSystem.WriteText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1785.2673831873803,
+        "Y": 621.6763362472675
+      },
+      {
+        "Id": "d6a3a932aa874da18facb003da5f6132",
+        "Name": "File Path",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1281.5459111033083,
+        "Y": 932.7929066157083
+      },
+      {
+        "Id": "f9ecf59f7b6e499298a0ec88df64d72f",
+        "Name": "FileSystem.WriteText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1841.5558207399733,
+        "Y": 990.3656022167507
+      },
+      {
+        "Id": "6a197e0f33554e69a63e4aa12e6f4df2",
+        "Name": "File Path",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1249.831319589028,
+        "Y": 626.5790681310458
+      },
+      {
+        "Id": "9a8d18c3f5354a919efcaa1815eb015a",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1135.7067867466187,
+        "Y": 1131.0
+      },
+      {
+        "Id": "9f62011da07942119880bd741c541212",
+        "Name": "String from Array",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 880.6501798889776,
+        "Y": 1400.1094923505732
+      },
+      {
+        "Id": "85e9a55c50b54b7f826561814b3698cf",
+        "Name": "File Path",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1325.0965909576819,
+        "Y": 1401.1943678947835
+      },
+      {
+        "Id": "c32724026b894da9936600c6a079b6b2",
+        "Name": "FileSystem.WriteText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1885.106500594347,
+        "Y": 1458.7670634958258
+      },
+      {
+        "Id": "a3d01f020eb741f68aa4d3831c4f2f61",
+        "Name": "Data.ParseJSON",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": false,
+        "X": 2880.4235527395954,
+        "Y": 1277.3627846928557
+      },
+      {
+        "Id": "613621c2696e4de7a26ae5c48305aa73",
+        "Name": "FileSystem.ReadText",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 2494.5715395608104,
+        "Y": 1274.0436275902425
+      },
+      {
+        "Id": "5390811abfd84dc68c6c46cb5b0c8dd0",
+        "Name": "List.Flatten",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 3300.238637151615,
+        "Y": 1271.404779539194
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "158a8598ca1e44f99a546907d5ff3a4c",
+        "Title": "Data.StringifyJSON",
+        "DescriptionText": "Description <Double click here to edit group description>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "708e988268e94d32af29df2802308ee4",
+          "fed74d365a2d4843b44f4207c041f5fa",
+          "5f9be3e6faf8411a8424bf7a8d27bfd5"
+        ],
+        "HasNestedGroups": false,
+        "Left": 378.3508129518683,
+        "Top": -363.7680594011354,
+        "Width": 875.4057895731895,
+        "Height": 367.32859920723195,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": -290.56805940113543,
+        "InitialHeight": 307.32859920723195,
+        "TextblockHeight": 63.199999999999996,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "8130a87567ba44edaa973e7750e752e9",
+        "Title": "Geometry.ToSolidDef",
+        "DescriptionText": "Description <Double click here to edit group description>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "96de742f123f4a6f9a562b71cc7651ec",
+          "b2d6c3f2d3754f41bd78c5df2a1d364f",
+          "7cfb30c474a843a79c99896a6bb50c77"
+        ],
+        "HasNestedGroups": false,
+        "Left": 367.6395654475896,
+        "Top": 44.0944512634262,
+        "Width": 977.6048038365427,
+        "Height": 373.68674388933937,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 117.2944512634262,
+        "InitialHeight": 313.68674388933937,
+        "TextblockHeight": 63.199999999999996,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e84367f8580b4f1eab3bbdd636095897",
+        "Title": "번역 오류?Dynamo에서 Data.StringifyJSON 및 Data.Remember 노드 언마스킹",
+        "DescriptionText": "Description <Double click here to edit group description>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "5d3ecb7942fc4e23b1d81dd6b6337ce9"
+        ],
+        "HasNestedGroups": false,
+        "Left": 426.8870073104209,
+        "Top": -897.4646400711207,
+        "Width": 318.3066666666667,
+        "Height": 376.20000000000005,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": -599.4646400711207,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 288.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "ff5364b629a24c67a5f8df7d69e35a8d",
+        "Title": "Title <Double click here to edit group title>",
+        "DescriptionText": "Description <Double click here to edit group description>",
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "8625e62028da48c6ab25df20d75ebb02",
+          "b935d107a88d47b6807cf820df08df6d",
+          "9a8d18c3f5354a919efcaa1815eb015a"
+        ],
+        "HasNestedGroups": false,
+        "Left": 511.96103528798676,
+        "Top": 1028.5615896253041,
+        "Width": 847.3457514586319,
+        "Height": 235.4000000000001,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 1101.7615896253042,
+        "InitialHeight": 192.20000000000005,
+        "TextblockHeight": 63.199999999999996,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "5d3ecb7942fc4e23b1d81dd6b6337ce9",
+        "Title": "https://dynamobim.org/lost-in-translation-unmasking-data-stringifyjson-and-data-remember-nodes-in-dynamo/",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 436.8870073104209,
+        "Top": -591.4646400711207,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "GroupStyleId": "00000000-0000-0000-0000-000000000000",
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -1747.9027940827175,
+    "Y": -719.6869498728863,
+    "Zoom": 0.7395464196805872
+  }
+}

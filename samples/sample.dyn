@@ -1,0 +1,21 @@
+{
+  "Nodes": [
+    { "Id": "n1", "Name": "Number", "Nickname": "Number", "Outputs": [ { "Name": "value" } ] },
+    { "Id": "n2", "Name": "Number", "Nickname": "Number", "Outputs": [ { "Name": "value" } ] },
+    { "Id": "add1", "Name": "Add", "Nickname": "Add", "Inputs": [ { "Name": "x" }, { "Name": "y" } ], "Outputs": [ { "Name": "sum" } ] }
+  ],
+  "Connectors": [
+    { "Start": { "NodeId": "n1", "Index": 0 }, "End": { "NodeId": "add1", "Index": 0 } },
+    { "Start": { "NodeId": "n2", "Index": 0 }, "End": { "NodeId": "add1", "Index": 1 } }
+  ],
+    "View": {
+    "X": 0,
+    "Y": 0,
+    "Zoom": 1.0,
+    "NodeViews": [
+      { "Id": "n1", "X": 100, "Y": 100, "IsCollapsed": false },
+      { "Id": "n2", "X": 100, "Y": 250, "IsCollapsed": false },
+      { "Id": "add1", "X": 400, "Y": 175, "IsCollapsed": false }
+    ]
+  }
+}
